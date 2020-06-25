@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import uuid from 'uuid/v4';
+
+import { getProject } from '../../redux/actions/projectActions';
 
 const itemsFromBackend = [
   { id: uuid(), content: 'First task' },
@@ -65,7 +68,7 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
-const App = () => {
+const ProjectDub = () => {
   const [columns, setColumns] = useState(columnsFromBackend);
 
   return (
@@ -139,4 +142,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ProjectDub;
